@@ -30,7 +30,6 @@ public class TestBpmn {
         execute(job());
         complete(externalTask("call_external_service_task"));
         assertThat(pi).isWaitingAt("some_message_received_from_external_system");
-        assertThat(pi).isWaitingAt("some_message_received_from_external_system");
         execute(job());
         processEngineRule.getRuntimeService()
                 .createMessageCorrelation("some_message")
