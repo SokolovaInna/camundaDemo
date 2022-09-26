@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="FriendlyNationDRD" name="Является ли страна дружественной?" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.0.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
+  <decision id="FriendlyNationDecision" name="Является ли страна дружественной?">
+    <informationRequirement id="InformationRequirement_1xh2yqi">
+      <requiredDecision href="#EUMembershipDecision" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0hvuyz2">
+      <requiredInput href="#country" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0lpv0lh" hitPolicy="FIRST">
+      <input id="Input_1" label="Страна" camunda:inputVariable="country">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1p1rbyi" label="Член ЕС" camunda:inputVariable="is_eu_member">
+        <inputExpression id="LiteralExpression_19eo00r" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Является ли страна дружественной?" name="is_friendly" typeRef="boolean" biodi:width="370" />
+      <rule id="DecisionRule_0jgg644">
+        <description>Все страны ЕС не являются дружественными.</description>
+        <inputEntry id="UnaryTests_1z0e9an">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nxp77y">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07eymxh">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09y2oc3">
+        <inputEntry id="UnaryTests_1waepov">
+          <text>"Австралия"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jqfu51">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1okoeks">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16y43u5">
+        <inputEntry id="UnaryTests_1rm9e82">
+          <text>"Албания"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hkm1db">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1aun8py">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0robzuu">
+        <inputEntry id="UnaryTests_1lugawu">
+          <text>"Андорра"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eol2mz">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00ghw6r">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18rnzfb">
+        <inputEntry id="UnaryTests_0k6t8w3">
+          <text>"Великобритания"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fvax6i">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1d5ly7b">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zvbzk8">
+        <inputEntry id="UnaryTests_0p84j82">
+          <text>"Исландия"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09invly">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1n4n1ww">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0bnit2m">
+        <inputEntry id="UnaryTests_07u38tm">
+          <text>"Канада"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mkf184">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11b1b86">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0uv4xis">
+        <inputEntry id="UnaryTests_1cd7j6d">
+          <text>"Лихтенштейн"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nw12t9">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0k9mdyr">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0bpzikt">
+        <inputEntry id="UnaryTests_1lv7v5d">
+          <text>"Микронезия"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yq1roe">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fojdgh">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xoh6p6">
+        <inputEntry id="UnaryTests_17ki5jm">
+          <text>"Монако"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1k0905w">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fk4yjz">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0bh0bj5">
+        <inputEntry id="UnaryTests_06py7o2">
+          <text>"Новая Зеландия"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zmjpzv">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_091gc7b">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xmk3dy">
+        <inputEntry id="UnaryTests_0120u4x">
+          <text>"Норвегия"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14egmde">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07n5fam">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0o3c10u">
+        <inputEntry id="UnaryTests_1ssh0kk">
+          <text>"Республика Корея"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1do2bvj">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1exp9tk">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_080jzpz">
+        <inputEntry id="UnaryTests_1589mmy">
+          <text>"Сан-Марино"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1min9qj">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1am5sne">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pcqgpu">
+        <inputEntry id="UnaryTests_1v3txdz">
+          <text>"Северная Македония"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oh0mmk">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1c3e9vs">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1839lcu">
+        <inputEntry id="UnaryTests_13s4n8s">
+          <text>"Сингапур"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17f3b0b">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gowdv5">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1f5i9ah">
+        <inputEntry id="UnaryTests_1k583uc">
+          <text>"Соединенные Штаты Америки"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r8qm8b">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ddyfsq">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15ml2jo">
+        <inputEntry id="UnaryTests_1017kc4">
+          <text>"Тайвань"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_172u94n">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0qw0psi">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xssvkh">
+        <inputEntry id="UnaryTests_1ouli3q">
+          <text>"Украина"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e40ufz">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ti6cbh">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1lkea0r">
+        <inputEntry id="UnaryTests_08r14pi">
+          <text>"Швейцария"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sm55xt">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1llkio7">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1epldqh">
+        <inputEntry id="UnaryTests_0cl76m5">
+          <text>"Япония"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1g3excq">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cxhczy">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ggqv6l">
+        <inputEntry id="UnaryTests_0hl345l">
+          <text>null</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17nwb10">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yvp16o">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1i8es1h">
+        <description>Если страны нет в списке и она не член ЕС, то значит дружественная.</description>
+        <inputEntry id="UnaryTests_0to31s2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10ms5vo">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dqhl8u">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qvjjz7">
+        <inputEntry id="UnaryTests_0bez7ut">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zibt7t">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rdvtdk">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04vvq3y">
+        <inputEntry id="UnaryTests_0b5qbtp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lg4cok">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04u9hqt">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="EUMembershipDecision" name="Является ли страна членом ЕС?">
+    <informationRequirement id="InformationRequirement_03jxw3h">
+      <requiredInput href="#country" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0pxbq4x" hitPolicy="FIRST">
+      <input id="InputClause_0kw78l8" label="Название страны" camunda:inputVariable="country">
+        <inputExpression id="LiteralExpression_0z6xz22" typeRef="string" />
+      </input>
+      <output id="OutputClause_0bxi5ny" label="Является ли страна членом ЕС?" name="is_eu_member" typeRef="boolean" />
+      <rule id="DecisionRule_0c85ii0">
+        <inputEntry id="UnaryTests_0zcf1w9">
+          <text>"Австрия"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1uge44b">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07ivwfe">
+        <inputEntry id="UnaryTests_0nnjwdo">
+          <text>"Бельгия"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xnfyal">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13ihp9r">
+        <inputEntry id="UnaryTests_0hjwksk">
+          <text>"Болгария"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00ervg9">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_034j380">
+        <inputEntry id="UnaryTests_1of51k0">
+          <text>"Хорватия"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bdpctr">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0crkhq4">
+        <inputEntry id="UnaryTests_1k45fi3">
+          <text>"Кипр"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yoiqam">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1nuh91s">
+        <inputEntry id="UnaryTests_127mmmq">
+          <text>"Чехия"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10d89mr">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_116nkwu">
+        <inputEntry id="UnaryTests_0m3blk4">
+          <text>"Дания"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0diqyu5">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0pf8s84">
+        <inputEntry id="UnaryTests_1dswff2">
+          <text>"Эстония"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0af1de6">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1v001qx">
+        <inputEntry id="UnaryTests_19banb7">
+          <text>"Финляндия"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1sv2lx0">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jog0kk">
+        <inputEntry id="UnaryTests_0gw585l">
+          <text>"Франция"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1cbn5te">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mfduek">
+        <inputEntry id="UnaryTests_1rv1bwk">
+          <text>"Германия"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12x6dbe">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18yhltx">
+        <inputEntry id="UnaryTests_1hbz9kt">
+          <text>"Греция"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12ikcy2">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1hrov98">
+        <inputEntry id="UnaryTests_0egrqq8">
+          <text>"Венгрия"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0d5qtij">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0z097oj">
+        <inputEntry id="UnaryTests_17gnl9b">
+          <text>"Ирландия"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0thz0sx">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1in7imi">
+        <inputEntry id="UnaryTests_1fmatug">
+          <text>"Италия"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1322vzd">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mu1mh5">
+        <inputEntry id="UnaryTests_1eupc46">
+          <text>"Латвия"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0k7glbg">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1x360zn">
+        <inputEntry id="UnaryTests_1rqhep2">
+          <text>"Литва"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_189u7ym">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1krox36">
+        <inputEntry id="UnaryTests_1jauxrq">
+          <text>"Люксембург"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15cy75z">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0oikdu7">
+        <inputEntry id="UnaryTests_0677agd">
+          <text>"Мальта"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_056b1r9">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jdbhaq">
+        <inputEntry id="UnaryTests_1ttggj3">
+          <text>"Нидерланды"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0n0wg6s">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12xz7zk">
+        <inputEntry id="UnaryTests_0ksdkyc">
+          <text>"Польша"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vkjh3n">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0emv1eo">
+        <inputEntry id="UnaryTests_00ezdku">
+          <text>"Португалия"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15k7tit">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19idk6b">
+        <inputEntry id="UnaryTests_031hmwn">
+          <text>"Румыния"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qp1rua">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0gadjzu">
+        <inputEntry id="UnaryTests_0k6f7ng">
+          <text>"Словакия"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12c5wij">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0u895by">
+        <inputEntry id="UnaryTests_0vyea5e">
+          <text>"Словения"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ac68ea">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0u6by2c">
+        <inputEntry id="UnaryTests_0m0xbiv">
+          <text>"Испания"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cdgvhe">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jksthe">
+        <inputEntry id="UnaryTests_14lbipx">
+          <text>"Швеция"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sq0a7z">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02w6p76">
+        <inputEntry id="UnaryTests_1n5sdne">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0c7zs71">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="country" name="Название страны" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="FriendlyNationDecision">
+        <dc:Bounds height="80" width="180" x="270" y="420" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0wh4zhs" dmnElementRef="EUMembershipDecision">
+        <dc:Bounds height="80" width="180" x="360" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0g9ck5w" dmnElementRef="InformationRequirement_1xh2yqi">
+        <di:waypoint x="450" y="280" />
+        <di:waypoint x="390" y="400" />
+        <di:waypoint x="390" y="420" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_08rdcds" dmnElementRef="country">
+        <dc:Bounds height="45" width="125" x="118" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_17r9rog" dmnElementRef="InformationRequirement_03jxw3h">
+        <di:waypoint x="181" y="123" />
+        <di:waypoint x="450" y="180" />
+        <di:waypoint x="450" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0lx4prr" dmnElementRef="InformationRequirement_0hvuyz2">
+        <di:waypoint x="181" y="123" />
+        <di:waypoint x="330" y="400" />
+        <di:waypoint x="330" y="420" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

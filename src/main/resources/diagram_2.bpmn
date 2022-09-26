@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_08ytw2p" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.11.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="Two" name="процесс с делегатом" isExecutable="true">
+    <bpmn:startEvent id="start" camunda:asyncBefore="true">
+      <bpmn:outgoing>Flow_08iw5x5</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="set_process_variable_parametr1" name="Устанавливаем переменную 1" camunda:asyncBefore="true">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:outputParameter name="параметр1">Запад=г...о</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_08iw5x5</bpmn:incoming>
+      <bpmn:outgoing>Flow_09c3wn5</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:serviceTask id="intermal_service_task" name="Внут задача" camunda:asyncBefore="true" camunda:delegateExpression="#{ДелегатИзУрока5}">
+      <bpmn:incoming>Flow_09c3wn5</bpmn:incoming>
+      <bpmn:outgoing>Flow_0pxqhs3</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="end" camunda:asyncBefore="true">
+      <bpmn:incoming>Flow_0pxqhs3</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_08iw5x5" sourceRef="start" targetRef="set_process_variable_parametr1" />
+    <bpmn:sequenceFlow id="Flow_09c3wn5" sourceRef="set_process_variable_parametr1" targetRef="intermal_service_task" />
+    <bpmn:sequenceFlow id="Flow_0pxqhs3" sourceRef="intermal_service_task" targetRef="end" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Two">
+      <bpmndi:BPMNEdge id="Flow_0pxqhs3_di" bpmnElement="Flow_0pxqhs3">
+        <di:waypoint x="480" y="117" />
+        <di:waypoint x="532" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_09c3wn5_di" bpmnElement="Flow_09c3wn5">
+        <di:waypoint x="340" y="117" />
+        <di:waypoint x="380" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08iw5x5_di" bpmnElement="Flow_08iw5x5">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="240" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="start">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_10ci5e9_di" bpmnElement="set_process_variable_parametr1">
+        <dc:Bounds x="240" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1pgtg1v_di" bpmnElement="intermal_service_task">
+        <dc:Bounds x="380" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_07c1hc0_di" bpmnElement="end">
+        <dc:Bounds x="532" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
