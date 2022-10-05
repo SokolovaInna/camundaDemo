@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0pc9w7l" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
+  <bpmn:process id="Lesson14_Process" name="Процесс из 14-го урока" isExecutable="true">
+    <bpmn:startEvent id="start">
+      <bpmn:outgoing>Flow_0fsjla2</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0fsjla2" sourceRef="start" targetRef="reserve_goods_in_warehouse" />
+    <bpmn:serviceTask id="reserve_goods_in_warehouse" name="Забронировать товар на складе" camunda:delegateExpression="#{ReserveGoodInWareHouse}">
+      <bpmn:incoming>Flow_0fsjla2</bpmn:incoming>
+      <bpmn:outgoing>Flow_1f1k5vh</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_1c78bz4">
+      <bpmn:incoming>Flow_03zxvw2</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1f1k5vh" sourceRef="reserve_goods_in_warehouse" targetRef="continue_with_order" />
+    <bpmn:boundaryEvent id="Event_14l5et9" attachedToRef="reserve_goods_in_warehouse">
+      <bpmn:outgoing>Flow_0syved0</bpmn:outgoing>
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_1imxlag" />
+    </bpmn:boundaryEvent>
+    <bpmn:task id="continue_with_order" name="Продолжать выполнять заказ">
+      <bpmn:incoming>Flow_1f1k5vh</bpmn:incoming>
+      <bpmn:outgoing>Flow_03zxvw2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_03zxvw2" sourceRef="continue_with_order" targetRef="Event_1c78bz4" />
+    <bpmn:sequenceFlow id="Flow_0syved0" sourceRef="Event_14l5et9" targetRef="cancel_order" />
+    <bpmn:endEvent id="Event_1pd5tic">
+      <bpmn:incoming>Flow_122j82a</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_122j82a" sourceRef="cancel_order" targetRef="Event_1pd5tic" />
+    <bpmn:task id="cancel_order" name="Отменить заказ">
+      <bpmn:incoming>Flow_0syved0</bpmn:incoming>
+      <bpmn:outgoing>Flow_122j82a</bpmn:outgoing>
+    </bpmn:task>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Lesson14_Process">
+      <bpmndi:BPMNEdge id="Flow_0fsjla2_di" bpmnElement="Flow_0fsjla2">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1f1k5vh_di" bpmnElement="Flow_1f1k5vh">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="470" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03zxvw2_di" bpmnElement="Flow_03zxvw2">
+        <di:waypoint x="570" y="117" />
+        <di:waypoint x="692" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0syved0_di" bpmnElement="Flow_0syved0">
+        <di:waypoint x="370" y="175" />
+        <di:waypoint x="370" y="240" />
+        <di:waypoint x="470" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_122j82a_di" bpmnElement="Flow_122j82a">
+        <di:waypoint x="570" y="240" />
+        <di:waypoint x="652" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="start">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1iax5ms_di" bpmnElement="reserve_goods_in_warehouse">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1c78bz4_di" bpmnElement="Event_1c78bz4">
+        <dc:Bounds x="692" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0goe3j7_di" bpmnElement="continue_with_order">
+        <dc:Bounds x="470" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1pd5tic_di" bpmnElement="Event_1pd5tic">
+        <dc:Bounds x="652" y="222" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_00sxh9y_di" bpmnElement="cancel_order">
+        <dc:Bounds x="470" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_03dkl7s_di" bpmnElement="Event_14l5et9">
+        <dc:Bounds x="352" y="139" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
