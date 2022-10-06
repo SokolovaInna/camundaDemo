@@ -16,5 +16,9 @@ public class DelegateMes implements JavaDelegate {
        delegateExecution.getProcessEngine().getRuntimeService().createMessageCorrelation("Message_start")
                 .processInstanceBusinessKey("AB-123")
                 .correlate();
+
+        delegateExecution.getProcessEngine().getRuntimeService().createMessageCorrelation("Message_start2")
+                .processInstanceBusinessKey("AB-1234")
+                .correlate();
     }
 }
